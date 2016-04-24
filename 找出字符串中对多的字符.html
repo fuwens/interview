@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str = "fssdhsd";
+		var obj={};
+		for (var i = 0; i < str.length; i++) {
+			if(obj[str.charAt(i)]){
+				obj[str.charAt(i)]++;
+			} else{
+				obj[str.charAt(i)] = 1;
+			}
+			
+		}
+		console.log(obj);
+		var tem = 0;
+		var val = null;
+		for(var key in obj){
+			if(obj[key] > tem ){
+				val = key;
+				tem = obj[key]
+			}
+		}
+		console.log("出现最多的是："+val+"，总共出现"+tem+"次")
+	</script>
+</body>
+</html>

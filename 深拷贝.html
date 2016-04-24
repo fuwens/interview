@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function clone(obj){
+			var o;
+			if(typeof(obj) !== "object"|| obj === null){
+				return obj;
+			}
+			if(obj instanceof(Array)){
+				o =[];
+				for(var i=0;i<obj.length;i++){
+					if(typeof(obj[i]) == "object" && obj[i] != null){
+						o[i] = clone(obj[i]);
+					}else{
+						o[i] = obj[i];
+					}
+				}
+			}else{
+				o = {};
+				for(key in obj){
+					if(typeof(obj[key])== "object" && obj[key] != null){
+						o[key] = clone(obj[key]);
+					}else{
+						o[key] = obj[key];
+					}
+				}
+			}
+			return o;
+		}
+		var ll= {
+			name:'mzh',
+			args:[12,34,4,{
+				h:2,
+				j:"fs"
+			}]
+		}
+		var all = clone(ll);
+		console.log(ll);
+		all.name ="ssssss";
+		console.log(ll);
+		console.log(all)
+	</script>
+</body>
+</html>

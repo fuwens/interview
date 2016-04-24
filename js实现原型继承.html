@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var a ={
+			name:'mzhuang'
+		}
+		a.getName = function() {
+			return this.name;
+		}
+		var b = cloneObj(a);
+		b.name='bbb';
+
+		console.log(b.getName())
+		function cloneObj (obj) {
+			var F=function() {};
+			F.prototype = obj;
+			return new F();
+		}
+
+
+		var father = function() {
+
+		}
+
+		father.prototype.a = function() {
+
+		}
+
+		var child = function(){}
+
+		//开始继承
+
+		child.prototype = new father();
+
+		var man = new child();
+
+		man.a();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

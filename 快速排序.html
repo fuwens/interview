@@ -1,0 +1,40 @@
+<script type="text/javascript">
+	//快速排序
+	function quickSort(arr){
+		if(arr.length <= 0 ){return arr;}
+		var pivotIndex = Math.floor(arr.length/2);
+		var pivot = arr.splice(pivotIndex,1)[0];  //取得中间值
+		var left =[];
+		var right =[];
+		for (var i = 0; i < arr.length; i++) {
+			if(arr[i]<pivot){
+				left.push(arr[i]);
+			}else{
+				right.push(arr[i]);
+			}
+		}
+		return arguments.callee(left).concat([pivot],arguments.callee(right))
+
+	};
+	//数组去重
+	Array.prototype.uniq = function () {
+	   var resArr = [];
+	   var flag = true;
+	     
+	   for(var i=0;i<this.length;i++){
+	       if(resArr.indexOf(this[i]) == -1){
+	           if(this[i] != this[i]){   //排除 NaN
+	              if(flag){
+	                   resArr.push(this[i]);
+	                   flag = false;
+	              }
+	           }else{
+	                resArr.push(this[i]);
+	           }
+	       }
+	   }
+	    return resArr;
+	}
+	var arr =[12,34,5,12,34,67,35,8,97]
+	console.log(quickSort(arr).uniq());
+</script>

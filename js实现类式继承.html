@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		//类式继承
+		function a(){
+			this.name= 'mazhuang';
+		}
+		a.prototype.getName=function(){
+			return this.name;
+		}
+
+		function b(){
+			a.call(this);
+			this.name = 'bbb';
+		}
+		
+
+		var F= function(){};
+		F.prototype = a.prototype;
+		b.prototype = new F();
+		b.prototype.constructor= b;
+
+		b.prototype.getAge =function(){
+			return 12;
+		}
+
+		var b1= new b();
+		var a1 = new a();
+		console.log(b1.getName())
+		console.log(a1.getName())
+		console.log(b1.getAge())
+
+
+		function father() {
+
+		  this.a = 'father'  
+
+		}
+
+		father.prototype.b = function() {
+
+		   alert(this.a)
+
+		}
+
+		var child = function() {
+
+		  father.call(this)
+
+		}
+
+		child.prototype = new father();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

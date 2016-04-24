@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组去重</title>
+	<script type="text/javascript">
+		function unique (arr) {
+			var json={},res=[];
+			for(var i=0;i<arr.length;i++){
+				if(!json[arr[i]]){
+					json[arr[i]] = true;
+					res.push(arr[i]);
+				}
+			}
+			return res;
+		}
+		var arr = [12,23,12,3,12,4,13,4,5,3];
+		console.log(unique(arr));
+
+
+		Array.prototype.uniq = function () {
+		   var resArr = [];
+		   var flag = true;
+		     
+		   for(var i=0;i<this.length;i++){
+		       if(resArr.indexOf(this[i]) == -1){
+		           if(this[i] != this[i]){   //排除 NaN
+		              if(flag){
+		                   resArr.push(this[i]);
+		                   flag = false;
+		              }
+		           }else{
+		                resArr.push(this[i]);
+		           }
+		       }
+		   }
+		    return resArr;
+		}
+		console.log([false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN].uniq());
+		var obj1 ={};
+		var obj2 = {};
+		console.log(obj1 === obj2)
+		console.log(Object.prototype.toString.call(null))
+		console.log(Object.prototype.toString.call(/^a/).toLowerCase())
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
